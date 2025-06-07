@@ -193,6 +193,14 @@ let lastId = 29;
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use((req, res, next) => {
+  res.setHeader(
+    "Content-Security-Policy",
+    "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self';"
+  );
+  next();
+});
+
 
 // GET all posts
 app.get("/questions", (req, res) => {
