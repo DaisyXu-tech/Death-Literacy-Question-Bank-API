@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Question</title>
+  <link rel="stylesheet" href="/styles/api.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>
+      <%= heading %>
+    </h1>
+
+    <% if (locals.question) { %>
+      <form id="editForm" method="post" action="/api/questions/<%=question.id%>">
+        <textarea name="content" rows="10"><%=question.content %></textarea>
+        <input type="text" name="domain" value="<%=question.Domain %>">
+        <button class="full-width" type="submit">
+          <%= submit %>
+        </button>
+      </form>
+      <% } else {%>
+        <form id="newPostForm" method="post" action="/api/questions">
+          <textarea name="content" placeholder="Content" required rows="10"></textarea>
+          <input type="text" name="domain" placeholder="Domain" required>
+          <button class="full-width" type="submit">
+            <%= submit %>
+          </button>
+        </form>
+        <% } %>
+
+  </div>
+</body>
+
+</html>

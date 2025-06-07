@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Death Literacy Questions Bank</title>
+  <link rel="stylesheet" href="/styles/api.css">
+  <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+</head>
+
+<body>
+  <div class="container">
+    <h1>Death Literacy Question Bank</h1>
+    <a id="newPostBtn" href="/new">New Question</a>
+    <ul id="postsList">
+      <% questions.forEach(question=> { %>
+        <li>
+          <p>
+            <%=question.QuestionText%>
+          </p>
+          <small>Domain: <%=question.Domain%> </small>
+          <a class="edit" href="/edit/<%= question.id %>">Edit</a>
+          <a class="delete" href="/api/posts/delete/<%= question.id %>">Delete</a>
+        </li>
+        <% }); %>
+    </ul>
+  </div>
+
+</body>
+
+</html>
